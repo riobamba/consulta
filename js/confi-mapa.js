@@ -48,7 +48,7 @@ function initMap() {
 
 				function crearMenu() {
 					var opciones=""
-					 $.getJSON('php/data.php', function(data) {
+					 $.getJSON('http://10.100.100.232:8081/query/stations.json', function(data) {
 						for (var i=0; i < data.Inventory.network.length; i++) {
 							var env="\'"+data.Inventory.network[i].code+"\'";
 							var desc=data.Inventory.network[i].description;
@@ -85,7 +85,7 @@ function solicitarXml() {
 		type : 'POST',
 		success : function(resp) {
 			if (resp == "ok") {
-				window.open('http://localhost/consulta/data/response.xml', '_blank');
+				window.open('http://10.100.100.232/html/consulta/data/response.xml', '_blank');
 				dialog10.close();
 				dialog.close();
 			} else {
@@ -247,7 +247,7 @@ function iniciarMapa() {
 		mapTypeId : google.maps.MapTypeId.TERRAIN
 	});
 
-	cadena = $.getJSON('php/data.php', function(data) {
+	cadena = $.getJSON('http://10.100.100.232:8081/query/stations.json', function(data) {
 		var codigo,
 		    longitud,
 		    latitud,
